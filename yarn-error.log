@@ -1,0 +1,72 @@
+Arguments: 
+  /usr/local/bin/node /opt/yarn-v1.22.19/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.20.4
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /host/package.json: Unexpected token } in JSON at position 691
+      at JSON.parse (<anonymous>)
+      at /opt/yarn-v1.22.19/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/opt/yarn-v1.22.19/lib/cli.js:310:30)
+      at /opt/yarn-v1.22.19/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "",
+    "scripts": {
+      "test": "tsc",
+      "preversion": "yarn run test",
+      "release": "yarn version --no-git-tag-version"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/altmp/altv-example-resources.git"
+    },
+    "keywords": [
+      "altmp",
+      "altv",
+      "node",
+      "node-module",
+      "js-module",
+      "gta",
+      "gta5",
+      "gtav"
+    ],
+    "author": "altMP Team",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/altmp/altv/issues"
+    },
+    "homepage": "https://github.com/altmp/altv-example-resources#readme",
+    "type": "module",
+    "dependencies": {
+      "axios": "^1.7.7",
+    },
+    "devDependencies": {
+      "@altv/types-client": "^16.2.7",
+      "@altv/types-natives": "^16.2.1",
+      "@altv/types-server": "^16.2.5",
+      "@altv/types-shared": "^16.2.4",
+      "@altv/types-worker": "^16.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
