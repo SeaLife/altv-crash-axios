@@ -1,28 +1,41 @@
-# alt:V Simple Freeroam Gamemode
+# Description
 
-Simple Freeroam Gamemode for alt:V by [MrNeta](https://github.com/MrNeta)
+_docker-compose.yml_
+```yml
+services:
+  altv:
+    image: altmp/altv-server:release
+    volumes:
+      - /root/alteravitarp/data-altv/resources:/altv/resources
+      - /root/alteravitarp/data-altv/server.toml:/altv/server.toml
+    environment:
+      ALTV_USE_ENV_CONFIG: 'false'
+    ports:
+      - 7788:7788
+      - 7788:7788/udp
+```
 
-## Features
+_server.toml_
+```toml
+name = 'xxxxxxxxxx (alt:v, development)'
+port = 7788
+players = 177
+# password = 'xxxxx123'
+announce = false
+gamemode = 'xxxxxx'
+website = 'discord.gg/xxxxx'
+language = 'de'
+description = 'Entwicklungsserver'
+modules = ['js-bytecode-module', 'js-module', 'csharp-module']
 
-- Each player can Spawn two Vehicles
-- Vehicles got removed on Disconnect
-- Different Spawn Points
-- Death Messages
-- Loaded Missing IPLs
+resources = [
+  'test',
+]
 
-## Commands
+debug = true
+```
 
-| Chat Command         | Description                                              |
-| -------------------- | -------------------------------------------------------- |
-| /help                | Shows a list of Commands                                 |
-| /veh (model)         | Spawns the Specific Vehicle Model (Without the Brackets) |
-| /pos                 | Prints the current Player Position                       |
-| /tp (targetPlayer)   | Teleport to specific players                             |
-| /model (modelName)   | Change Player Model                                      |
-| /weapon (weaponName) | Give specified Weapon                                    |
-| /weapons             | Give all Weapons                                         |
-
-## Dependencies
-
-- Chat Resource | [GitHub](/chat)
-- Node-Module
+The resource is located in this repository. Dependencies are installed using a docker command in the resource directory.
+```bash
+docker run --rm -it -v $(pwd):/host -w /host node:18 yarn install
+```
